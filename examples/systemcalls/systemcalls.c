@@ -154,7 +154,6 @@ bool do_exec_redirect(const char *outputfile, int count, ...)
         return false;
     }
     else if(child_pid == 0){
-        execv(command[0], command);
 
         int fd = open(outputfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
         if (fd < 0) {
@@ -168,6 +167,8 @@ bool do_exec_redirect(const char *outputfile, int count, ...)
         }
 
         close(fd);
+
+        execv(command[0], command);
 
         fprintf(stderr, "returned from execv means error");
         return false;
