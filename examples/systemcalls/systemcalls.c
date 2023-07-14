@@ -72,18 +72,18 @@ bool do_exec(int count, ...)
 
     va_end(args);
 
-    if(command[0][0]=!'/'){
+    if(command[0][0] =! '/'){
         fprintf(stderr, "the argument provided is not a full path but relative. exiting...");
         return false;
     }
 
     pid_t child_pid = fork();
 
-    if(child_pid==-1){
+    if(child_pid == -1){
         fprintf(stderr, "failed to call fork()");
         return false;
     }
-    else if(child_pid==0){
+    else if(child_pid == 0){
         execv(command[0], command);
         fprintf(stderr, "returned from execv means error");
         return false;
@@ -142,18 +142,18 @@ bool do_exec_redirect(const char *outputfile, int count, ...)
 
     va_end(args);
 
-    if(command[0][0]=!'/'){
+    if(command[0][0] =! '/'){
         fprintf(stderr, "the argument provided is not a full path but relative. exiting...");
         return false;
     }
 
     pid_t child_pid = fork();
 
-    if(child_pid==-1){
+    if(child_pid == -1){
         fprintf(stderr, "failed to call fork()");
         return false;
     }
-    else if(child_pid==0){
+    else if(child_pid == 0){
         execv(command[0], command);
 
         int fd = open(outputfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
