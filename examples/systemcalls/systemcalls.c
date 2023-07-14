@@ -72,7 +72,7 @@ bool do_exec(int count, ...)
 
     va_end(args);
 
-    if(command[0][0] =! '/'){
+    if(command[0][0] != '/'){
         fprintf(stderr, "the argument provided is not a full path but relative. exiting...");
         return false;
     }
@@ -142,7 +142,7 @@ bool do_exec_redirect(const char *outputfile, int count, ...)
 
     va_end(args);
 
-    if(command[0][0] =! '/'){
+    if(command[0][0] != '/'){
         fprintf(stderr, "the argument provided is not a full path but relative. exiting...");
         return false;
     }
