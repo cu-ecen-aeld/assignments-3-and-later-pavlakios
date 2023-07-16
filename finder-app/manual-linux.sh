@@ -7,7 +7,8 @@ set -u
 
 OUTDIR=/tmp/aeld
 KERNEL_REPO=git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
-KERNEL_VERSION=v5.1.10
+#KERNEL_VERSION=v5.1.10
+KERNEL_VERSION=v5.15.120
 BUSYBOX_VERSION=1_33_1
 FINDER_APP_DIR=$(realpath $(dirname $0))
 ARCH=arm64
@@ -60,7 +61,8 @@ then
 fi
 
 # TODO: Create necessary base directories
-mkdir -p rootfs/bin rootfs/dev rootfs/etc rootfs/home rootfs/lib rootfs/lib64 rootfs/proc rootfs/sbin rootfs/sys rootfs/tmp rootfs/usr rootfs/var
+mkdir -p rootfs/bin 
+mkdir -p rootfs/dev rootfs/etc rootfs/home rootfs/lib rootfs/lib64 rootfs/proc rootfs/sbin rootfs/sys rootfs/tmp rootfs/usr rootfs/var
 mkdir -p rootfs/usr/bin rootfs/usr/lib rootfs/usr/sbin
 mkdir -p rootfs/var/log
 
