@@ -20,7 +20,7 @@ void* threadfunc(void* thread_param)
 
     usleep(thread_func_args->wait_to_obtain_ms);
 
-    rc = pthread_mutex_lock(&thread_func_args->pmutex);
+    rc = pthread_mutex_lock(thread_func_args->pmutex);
     if(rc!=0){
         ERROR_LOG("mutex obrain failed");
         return thread_param;
@@ -28,7 +28,7 @@ void* threadfunc(void* thread_param)
     
     usleep(thread_func_args->wait_to_release_ms);
 
-    rc = pthread_mutex_unlock(&thread_func_args->pmutex);
+    rc = pthread_mutex_unlock(thread_func_args->pmutex);
     if(rc!=0){
         ERROR_LOG("mutex release failed");
         return thread_param;
