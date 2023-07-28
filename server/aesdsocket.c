@@ -5,6 +5,7 @@
 #include <netinet/in.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <sys/stat.h>
 #include <errno.h>
 #include <unistd.h>
 #include <syslog.h>
@@ -49,7 +50,7 @@ static void socket_service(int server_fd)
     int addrlen = 0;
     char ipstr[INET6_ADDRSTRLEN];
 
-    fd = open(tmp_file, (O_RDWR | O_CREAT | O_TRUNC), (S_IRWXU | S_IRWXG | S_IROTH));
+    fd = open(tmp_file, (O_RDWR | O_CREAT | O_TRUNC), (0664));
     if (fd == -1) {
         syslog(LOG_ERR, "Open file error: %s", strerror(errno));
         exit(-1);
